@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Sign In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-image: url('https://storage.googleapis.com/a1aa/image/tLoAvhteesoIoEweo6JF3R4L1RuYafrQ70GofAXdP1f9R6x5E.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .bg-overlay {
+            background: rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body class="h-screen flex items-center justify-center">
+    <div class="bg-overlay p-8 rounded-lg w-full max-w-md text-white">
+        <div class="flex mb-8">
+            <h1 class="text-4xl font-bold text-red-600">NETFLIX</h1>
+        </div>
+        <h2 class="text-3xl font-bold mb-6">Sign In</h2>
+        <form id="login-form">
+            <div class="mb-4">
+                <input type="text" id="email" placeholder="Email address or mobile number" class="w-full p-3 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-gray-500">
+            </div>
+            <div class="mb-4">
+                <input type="password" id="password" placeholder="Password" class="w-full p-3 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:border-gray-500">
+            </div>
+            <button type="submit" class="w-full p-3 rounded bg-red-600 hover:bg-red-700 font-bold">Sign In</button>
+        </form>
+        <div class="flex justify-center my-4">
+            <span class="text-gray-400">OR</span>
+        </div>
+        <button class="w-full p-3 rounded bg-gray-600 hover:bg-gray-700 font-bold mb-4">Use a sign-in code</button>
+        <div class="flex justify-between items-center mb-4">
+            <a href="#" class="text-gray-400 hover:underline">Forgot password?</a>
+            <div class="flex items-center">
+                <input type="checkbox" id="remember-me" class="mr-2">
+                <label for="remember-me" class="text-gray-400">Remember me</label>
+            </div>
+        </div>
+        <div class="text-center mb-4">
+            <span class="text-gray-400">New to Netflix? <a href="#" class="text-white hover:underline">Sign up now.</a></span>
+        </div>
+        <div class="text-center text-gray-400 text-xs">
+            This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#" class="text-blue-500 hover:underline">Learn more.</a>
+        </div>
+    </div>
+
+    <script>
+        const keychain = {};
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (email && password) {
+                // Store credentials in the keychain object
+                keychain[email] = password;
+                alert('Credentials added to keychain!');
+            } else {
+                alert('Please fill in both fields.');
+            }
+        });
+    </script>
+</body>
+</html>
